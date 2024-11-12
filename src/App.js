@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ColorSchemesExample from './Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './Home';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import MarketData from "./MarketData";
+import LoanEligibility from "./LoanEligibility";
+import FraudDetection from "./FraudDetection";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
+import { Container } from 'react-bootstrap';
+
+// <Route path="/marketdata" element={<MarketData />} />
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ColorSchemesExample />
+      <Container>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/loaneligibility" element={<LoanEligibility />} />
+          <Route path="/frauddetection" element={<FraudDetection />} />
+          <Route path="/marketdata" element={<MarketData />} />
+
+        </Routes>
+      </Container>
+    </Router>
   );
 }
 
